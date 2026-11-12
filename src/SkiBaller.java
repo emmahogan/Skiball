@@ -193,7 +193,7 @@ public class SkiBaller extends MouseAdapter implements Runnable, ActionListener
                 g.fillOval(UPLEFT_20.x, UPLEFT_20.y, 3*RING_WIDTH, 3*RING_WIDTH);
                 g.setColor(colorList[2]);
                 g.fillOval(UPLEFT_30.x, UPLEFT_30.y, RING_WIDTH, RING_WIDTH);
-                g.setColor(new Color(255, 255, 255));
+                g.setColor(new Color(255, 0, 0));
                 g.fillOval(UPLEFT_50.x, UPLEFT_50.y, RING_WIDTH, RING_WIDTH);
 
                 //OUTLINES ALL OF THE TARGET CIRCLES WITH BLACK LINES
