@@ -50,6 +50,10 @@ public class SkiBaller extends MouseAdapter implements Runnable, ActionListener
     static final Point UPLEFT_10 = new Point(CENTER.x - 5*RING_WIDTH/2, CENTER.y - 5*RING_WIDTH/2);
     static final Point UPLEFT_20 = new Point(CENTER.x - 3*RING_WIDTH/2, CENTER.y - 3*RING_WIDTH/2);
     static final Point UPLEFT_30 = new Point(CENTER.x - RING_WIDTH/2, CENTER.y - RING_WIDTH/2);
+    
+    // Number of shots per game
+    static final int GAME_SHOTS = 10;
+    
     //////////////////////////////////////////////
     //INSTANCE VARIABLE
 
@@ -107,6 +111,9 @@ public class SkiBaller extends MouseAdapter implements Runnable, ActionListener
     boolean dragging;
     boolean playing = false;
 
+    //keep track of ball locations for all shots in a game, to review at the end of game
+    Point[] stored_shots = new Point[GAME_SHOTS];
+
     Font bigFont = new Font("Helvetica", Font.BOLD, 35);
     /**
      * This method creates the JFrame window and add the different panels and labels to the window
@@ -161,8 +168,8 @@ public class SkiBaller extends MouseAdapter implements Runnable, ActionListener
         restartButton.addActionListener(this);
         sidePanel.add(restartButton);
 
-        //SETS STARTING SHOTS TO 10
-        shotsLeft = 10;
+        //SETS STARTING SHOTS TO GAME_SHOTS
+        shotsLeft = GAME_SHOTS;
 
         //Sets board to be all white before starting for first time
         colorList[0] = new Color(255, 255, 255);
@@ -235,7 +242,7 @@ public class SkiBaller extends MouseAdapter implements Runnable, ActionListener
         }
         //SETS EVERYTHING TO DEFAULT STARTING AMOUNT AND ADDS COLORS TO THE TARGET
         pointsTotal = 0;
-        shotsLeft = 10;
+        shotsLeft = GAME_SHOTS;
         ballLocation = null;
         updateLabels();
         buttonLabel.setText("Restart Game");
@@ -274,9 +281,9 @@ public class SkiBaller extends MouseAdapter implements Runnable, ActionListener
      */
     public void mouseReleased(MouseEvent e){
         dragging = false;
+        shotsLeft--;
         shotCalculation(e.getPoint());
         lanePanel.repaint();
-        shotsLeft--;
         if(pointsTotal > highScore)
         {
             highScore = pointsTotal;
@@ -347,7 +354,9 @@ public class SkiBaller extends MouseAdapter implements Runnable, ActionListener
         int yVal;
         xVal = slingLineEnd.x - (slingLineEnd.x - slingLineStart.x) * 4;
         yVal = slingLineEnd.y - (slingLineEnd.y - slingLineStart.y) * 4;
-        ballLocation = new Point(xVal, yVal);
+        Point p = new Point(xVal, yVal);
+        ballLocation = p;
+        stored_shots[shotsLeft] = p; // stores point where shot is placed in array of stored shots at index shotsLeft
         pointsEarned(ballLocation);
     }
     
