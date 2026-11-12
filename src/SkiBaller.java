@@ -146,7 +146,6 @@ public class SkiBaller extends MouseAdapter implements Runnable, ActionListener
         mainPanel.setLayout(new BorderLayout());
 
         //ADDS ALL OF THE LABELS TO SIDEPANEL
-        sidePanel.add(Box.createVerticalStrut(150));
         sidePanel.add(gameLabel);
         sidePanel.add(statusLabel);
         sidePanel.add(pointsLabel);
