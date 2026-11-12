@@ -153,6 +153,7 @@ public class SkiBaller extends MouseAdapter implements Runnable, ActionListener
         mainPanel.setLayout(new BorderLayout());
 
         //ADDS ALL OF THE LABELS TO SIDEPANEL
+        sidePanel.add(Box.createVerticalStrut(200));
         sidePanel.add(gameLabel);
         sidePanel.add(statusLabel);
         sidePanel.add(pointsLabel);
@@ -193,7 +194,7 @@ public class SkiBaller extends MouseAdapter implements Runnable, ActionListener
                 g.fillOval(UPLEFT_20.x, UPLEFT_20.y, 3*RING_WIDTH, 3*RING_WIDTH);
                 g.setColor(colorList[2]);
                 g.fillOval(UPLEFT_30.x, UPLEFT_30.y, RING_WIDTH, RING_WIDTH);
-                g.setColor(new Color(255, 255, 255));
+                g.setColor(new Color(0, 255, 0));
                 g.fillOval(UPLEFT_50.x, UPLEFT_50.y, RING_WIDTH, RING_WIDTH);
 
                 //OUTLINES ALL OF THE TARGET CIRCLES WITH BLACK LINES
