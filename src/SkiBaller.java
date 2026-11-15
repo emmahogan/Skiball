@@ -45,6 +45,9 @@ public class SkiBaller extends MouseAdapter implements Runnable, ActionListener
     //Size of ball
     static final int BALL_SIZE = 10;
 
+    //Width of gutters
+    static final int GUTTER_WIDTH = 20;
+
     //The upper left corner of all of the targets
     static final Point UPLEFT_50 = new Point(CENTER.x - RING_WIDTH/2, RING_WIDTH);
     static final Point UPLEFT_10 = new Point(CENTER.x - 5*RING_WIDTH/2, CENTER.y - 5*RING_WIDTH/2);
@@ -195,6 +198,14 @@ public class SkiBaller extends MouseAdapter implements Runnable, ActionListener
                 g.drawOval(UPLEFT_20.x, UPLEFT_20.y, 3*RING_WIDTH, 3*RING_WIDTH);
                 g.drawOval(UPLEFT_30.x, UPLEFT_30.y, RING_WIDTH, RING_WIDTH);
                 g.drawOval(UPLEFT_50.x, UPLEFT_50.y, RING_WIDTH, RING_WIDTH);
+
+                // draw gutters
+                g.drawRect(0, 0, GUTTER_WIDTH, DIVIDER_LINE);
+                g.drawRect(LANE_WIDTH - GUTTER_WIDTH, 0, GUTTER_WIDTH, DIVIDER_LINE);
+                g.setColor(new Color(200,200,100));
+                g.fillRect(0, 0, GUTTER_WIDTH, DIVIDER_LINE);
+                g.fillRect(LANE_WIDTH - GUTTER_WIDTH, 0, GUTTER_WIDTH, DIVIDER_LINE);
+
                 if(dragging){
                     //DRAWS THE BALL WHERE IT IS BEING DRAGGED
                     g.setColor(new Color(255, yellowStrength, 0));
