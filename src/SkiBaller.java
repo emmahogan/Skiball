@@ -30,6 +30,9 @@ public class SkiBaller extends MouseAdapter implements Runnable, ActionListener
     //y coord of divider line
     static final int DIVIDER_LINE = 500;
 
+    //gutter width
+    static final int GUTTER_WIDTH = 15;
+
     //SETS MAX STRENGTH OF THE SHOTS
     static final int MAX_STRENGTH = 165;
 
@@ -195,6 +198,13 @@ public class SkiBaller extends MouseAdapter implements Runnable, ActionListener
                 g.drawOval(UPLEFT_20.x, UPLEFT_20.y, 3*RING_WIDTH, 3*RING_WIDTH);
                 g.drawOval(UPLEFT_30.x, UPLEFT_30.y, RING_WIDTH, RING_WIDTH);
                 g.drawOval(UPLEFT_50.x, UPLEFT_50.y, RING_WIDTH, RING_WIDTH);
+
+                g.drawRect(0, 0, GUTTER_WIDTH, DIVIDER_LINE);
+                g.drawRect(LANE_WIDTH - GUTTER_WIDTH, 0, GUTTER_WIDTH, DIVIDER_LINE);
+                g.setColor(new Color(200,200,100));
+                g.fillRect(0, 0, GUTTER_WIDTH, DIVIDER_LINE);
+                g.fillRect(LANE_WIDTH - GUTTER_WIDTH, 0, GUTTER_WIDTH, DIVIDER_LINE);
+
                 if(dragging){
                     //DRAWS THE BALL WHERE IT IS BEING DRAGGED
                     g.setColor(new Color(255, yellowStrength, 0));
