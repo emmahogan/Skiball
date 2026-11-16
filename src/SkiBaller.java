@@ -127,7 +127,7 @@ public class SkiBaller extends MouseAdapter implements Runnable, ActionListener
 
         ///////////////////////CREATES ALL THGE NECESSARY LABELS AND ALIGNS THEM IN THE CENTER
         gameLabel.setFont(bigFont);
-        gameLabel.setForeground(Color.RED);
+        gameLabel.setForeground(Color.BLUE);
         gameLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         statusLabel = new JLabel("Press Start Game to Play");
         statusLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
